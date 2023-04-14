@@ -1,0 +1,38 @@
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}
+
+li {
+    display: inline-block;
+}
+
+.color {
+    border: 1px solid black;
+}
+
+.pink {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+}
+
+.green {
+    background-color: purple;
+    width: 50px;
+    height: 50px;
+}
+
+.blue {
+    background-color: peru;
+    width: 50px;
+    height: 50px;
+}
+
+.purple {
+    background-color: plum;
+    width: 50px;
+    height: 50px;
+}
