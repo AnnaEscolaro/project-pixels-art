@@ -21,11 +21,11 @@ window.onload = () => {
     let colorTwo = document.querySelector('.two');
     let colorThree = document.querySelector('.three');
 
-    let colorPalete = document.getElementById('button-random-color').addEventListener('click', () => {
+    let colorPalette = document.getElementById('button-random-color').addEventListener('click', () => {
         colorOne.style.backgroundColor = randomColor();
         colorTwo.style.backgroundColor = randomColor();
         colorThree.style.backgroundColor = randomColor();
     });
 
-    localStorage.setItem(colorPalete);
+    localStorage.setItem(colorPalette);
 };
