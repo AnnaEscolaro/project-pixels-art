@@ -1,12 +1,6 @@
-// const selectColor = (event) => {
-//     const selected = document.querySelectorAll('.selected');
-//     for (let el of selected) {
-//         el.classList.remove('selected');
-//     }
-//     event.target.classList.add('selected');
-// };
-
 window.onload = () => {
+
+    const onLoad = localStorage.getItem('colorPalette');
 
     function randomColor() {
         let numLetters = '0123456789ABCDEF';
@@ -21,11 +15,12 @@ window.onload = () => {
     let colorTwo = document.querySelector('.two');
     let colorThree = document.querySelector('.three');
 
-    let colorPalette = document.getElementById('button-random-color').addEventListener('click', () => {
+    document.getElementById('button-random-color').addEventListener('click', () => {
         colorOne.style.backgroundColor = randomColor();
         colorTwo.style.backgroundColor = randomColor();
         colorThree.style.backgroundColor = randomColor();
     });
 
-    localStorage.setItem(colorPalette);
+    let colors = [colorOne, colorTwo, colorThree];
+    localStorage.setItem('colorPalette', colors);
 };
