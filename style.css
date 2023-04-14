@@ -13,26 +13,30 @@ li {
     border: 1px solid black;
 }
 
-.pink {
+.black {
     background-color: black;
     width: 50px;
     height: 50px;
 }
 
-.green {
+.one {
     background-color: purple;
     width: 50px;
     height: 50px;
 }
 
-.blue {
+.two {
     background-color: peru;
     width: 50px;
     height: 50px;
 }
 
-.purple {
+.three {
     background-color: plum;
     width: 50px;
     height: 50px;
 }
+
+/* .selected {
+    border: 3px solid black;
+} */
