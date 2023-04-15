@@ -1,6 +1,16 @@
 window.onload = () => {
 
-    const onLoad = localStorage.getItem('colorPalette');
+    let recoveryLocalStorage = JSON.parse(localStorage.getItem('colorPalette'));
+
+    let colorOne = document.querySelector('.one');
+    let colorTwo = document.querySelector('.two');
+    let colorThree = document.querySelector('.three');
+
+    if (recoveryLocalStorage) {
+        colorOne.style.backgroundColor = recoveryLocalStorage[0];
+        colorTwo.style.backgroundColor = recoveryLocalStorage[1];
+        colorThree.style.backgroundColor = recoveryLocalStorage[2];
+    };
 
     function randomColor() {
         let numLetters = '0123456789ABCDEF';
@@ -11,16 +21,11 @@ window.onload = () => {
         return color;
     };
 
-    let colorOne = document.querySelector('.one');
-    let colorTwo = document.querySelector('.two');
-    let colorThree = document.querySelector('.three');
-
     document.getElementById('button-random-color').addEventListener('click', () => {
-        colorOne.style.backgroundColor = randomColor();
-        colorTwo.style.backgroundColor = randomColor();
-        colorThree.style.backgroundColor = randomColor();
+        let colors = [randomColor(), randomColor(), randomColor()];
+        colorOne.style.backgroundColor = colors[0];
+        colorTwo.style.backgroundColor = colors[1];
+        colorThree.style.backgroundColor = colors[2];
+        localStorage.setItem('colorPalette', JSON.stringify(colors));
     });
-
-    let colors = [colorOne, colorTwo, colorThree];
-    localStorage.setItem('colorPalette', colors);
 };
