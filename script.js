@@ -1,7 +1,6 @@
 window.onload = () => {
 
     let recoveryLocalStorage = JSON.parse(localStorage.getItem('colorPalette'));
-
     let colorOne = document.querySelector('.one');
     let colorTwo = document.querySelector('.two');
     let colorThree = document.querySelector('.three');
@@ -48,11 +47,8 @@ window.onload = () => {
         color.addEventListener('click', (selectColor));
     };
 
-    // const changeColors = document.querySelectorAll('.color');
-    // for (let item of changeColors) {
-    //     item.addEventListener('click', (event) => {
-    //         const selected = document.querySelector('.selected');
-    //         selected.style.backgroundColor = 
-    //     })
-    // }
+    document.getElementById('pixel-board').addEventListener('click', (event) => {
+        const selected = document.querySelector('.selected');
+        event.target.style.backgroundColor += selected.style.backgroundColor;
+    })
 };
