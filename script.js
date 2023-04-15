@@ -12,6 +12,20 @@ window.onload = () => {
         colorThree.style.backgroundColor = recoveryLocalStorage[2];
     };
 
+    const firstSelectedColor = () => {
+        let colorBlack = document.querySelector('.black');
+        colorBlack.classList.add('selected');
+    }
+    firstSelectedColor();
+
+    const selectColor = (event) => {
+        let selectedColors = document.querySelectorAll('.selected');
+        for (let el of selectedColors) {
+            el.classList.remove('selected');
+        }
+        event.target.classList.add('selected');
+    }
+
     function randomColor() {
         let numLetters = '0123456789ABCDEF';
         let color = '#';
@@ -28,4 +42,17 @@ window.onload = () => {
         colorThree.style.backgroundColor = colors[2];
         localStorage.setItem('colorPalette', JSON.stringify(colors));
     });
+
+    const colors = document.getElementsByClassName('color');
+    for (let color of colors) {
+        color.addEventListener('click', (selectColor));
+    };
+
+    // const changeColors = document.querySelectorAll('.color');
+    // for (let item of changeColors) {
+    //     item.addEventListener('click', (event) => {
+    //         const selected = document.querySelector('.selected');
+    //         selected.style.backgroundColor = 
+    //     })
+    // }
 };
