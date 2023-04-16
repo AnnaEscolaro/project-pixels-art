@@ -14,6 +14,7 @@ window.onload = () => {
     const firstSelectedColor = () => {
         let colorBlack = document.querySelector('.black');
         colorBlack.classList.add('selected');
+        colorBlack.classList.add('black');
     }
     firstSelectedColor();
 
