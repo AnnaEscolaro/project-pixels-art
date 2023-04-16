@@ -1,11 +1,12 @@
 window.onload = () => {
 
     let recoveryLocalStorage = JSON.parse(localStorage.getItem('colorPalette'));
-    let recoverPixels = JSON.parse(localStorage.getItem('pixelBoard'));
+    let recoverPixels = localStorage.getItem('pixelBoard');
     let colorOne = document.querySelector('.one');
     let colorTwo = document.querySelector('.two');
     let colorThree = document.querySelector('.three');
     let colorBlack = document.querySelector('.black');
+    let pixelBoard = document.getElementById('pixel-board');
 
     if (recoveryLocalStorage) {
         colorOne.style.backgroundColor = recoveryLocalStorage[0];
@@ -14,9 +15,8 @@ window.onload = () => {
     };
 
     if (recoverPixels) {
-
-    }
-
+        pixelBoard.innerHTML = recoverPixels;
+    };
 
     const firstSelectedColor = () => {
         colorBlack.classList.add('selected');
@@ -29,7 +29,7 @@ window.onload = () => {
             el.classList.remove('selected');
         }
         event.target.classList.add('selected');
-    }
+    };
 
     function randomColor() {
         let numLetters = '0123456789ABCDEF';
@@ -55,16 +55,15 @@ window.onload = () => {
 
     document.getElementById('pixel-board').addEventListener('click', (event) => {
         const selected = document.querySelector('.selected');
-        let coloredPixels = [];
-        // event.target.style.backgroundColor = selected.style.backgroundColor;
-        coloredPixels.push(event.target.style.backgroundColor = selected.style.backgroundColor);
-        localStorage.setItem('pixelBoard', JSON.stringify(coloredPixels));
-    })
+        event.target.style.backgroundColor = selected.style.backgroundColor;
+        let pixelBoard = document.getElementById('pixel-board');
+        localStorage.setItem('pixelBoard', pixelBoard.innerHTML);
+    });
 
     document.getElementById('clear-board').addEventListener('click', () => {
         let pixel = document.querySelectorAll('.pixel');
         for (let index = 0; index < pixel.length; index += 1) {
             pixel[index].style.backgroundColor = 'white';
         }
-    })
+    });
 };
