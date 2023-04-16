@@ -4,6 +4,7 @@ window.onload = () => {
     let colorOne = document.querySelector('.one');
     let colorTwo = document.querySelector('.two');
     let colorThree = document.querySelector('.three');
+    let colorBlack = document.querySelector('.black');
 
     if (recoveryLocalStorage) {
         colorOne.style.backgroundColor = recoveryLocalStorage[0];
@@ -12,9 +13,7 @@ window.onload = () => {
     };
 
     const firstSelectedColor = () => {
-        let colorBlack = document.querySelector('.black');
         colorBlack.classList.add('selected');
-        colorBlack.classList.add('black');
     }
     firstSelectedColor();
 
@@ -50,6 +49,6 @@ window.onload = () => {
 
     document.getElementById('pixel-board').addEventListener('click', (event) => {
         const selected = document.querySelector('.selected');
-        event.target.style.backgroundColor += selected.style.backgroundColor;
+        event.target.style.backgroundColor = selected.style.backgroundColor;
     })
 };
