@@ -66,4 +66,28 @@ window.onload = () => {
             pixel[index].style.backgroundColor = 'white';
         }
     });
+
+    document.getElementById('generate-board').addEventListener('click', () => {
+        let boardSize = document.getElementById('board-size').value;
+        if (boardSize <= 0 || boardSize > 20) {
+            alert("Board inválido!");
+        }
+        if (boardSize > 0 && boardSize <= 20) {
+            pixelBoard.innerHTML = '';
+
+            let createDiv = document.createElement('div');
+            createDiv.classList.add('pixel');
+
+            for (let index = 0; index < boardSize; index += 1) {
+                let createArt = document.createElement('article');
+                pixelBoard.appendChild(createArt);
+                for (let idx = 0; idx < boardSize; idx += 1) {
+                    let createDiv = document.createElement('div');
+                    createDiv.classList.add('pixel');
+                    createArt.appendChild(createDiv);
+                    console.log(pixelBoard);
+                }
+            };
+        };
+    });
 };
