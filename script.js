@@ -1,7 +1,7 @@
 window.onload = () => {
 
     let recoveryLocalStorage = JSON.parse(localStorage.getItem('colorPalette'));
-    let recoverPixels = localStorage.getItem('pixelBoard');
+    let recoverBoardSize = localStorage.getItem('pixelBoard');
     let colorOne = document.querySelector('.one');
     let colorTwo = document.querySelector('.two');
     let colorThree = document.querySelector('.three');
@@ -14,8 +14,8 @@ window.onload = () => {
         colorThree.style.backgroundColor = recoveryLocalStorage[2];
     };
 
-    if (recoverPixels) {
-        pixelBoard.innerHTML = recoverPixels;
+    if (recoverBoardSize) {
+        pixelBoard.innerHTML = recoverBoardSize;
     };
 
     const firstSelectedColor = () => {
@@ -69,6 +69,7 @@ window.onload = () => {
 
     document.getElementById('generate-board').addEventListener('click', () => {
         let boardSize = document.getElementById('board-size').value;
+        localStorage.setItem('boardSize', boardSize);
         if (boardSize < 5 || boardSize > 50) {
             alert("Board inválido!");
         };
@@ -115,5 +116,6 @@ window.onload = () => {
                 }
             };
         };
+        localStorage.setItem('pixelBoard', pixelBoard.innerHTML);
     });
 };
