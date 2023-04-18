@@ -1,12 +1,22 @@
 * {
-    background-color: rgba(239, 239, 244, 0.754);
+    background-color: #EEEEEE;
+    text-align: center;
+}
+
+main,
+.section,
+ul,
+head,
+#title {
+    background-image: url('desktop-1920x1080.png');
+    background-size: cover;
+    color: azure
 }
 
 ul {
     list-style: none;
     margin: 0px;
     padding: 0px;
-    display: inline-block;
 }
 
 li {
